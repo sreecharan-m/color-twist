@@ -842,6 +842,7 @@ const ball = {
     speed : 0,
     jumped:0,
     maxy:0.7*HEIGHT,
+    maxheight:HEIGHT,
 
 draw(){
     
@@ -881,15 +882,15 @@ update()
     {
       this.maxy = this.y;
     }
-    
-    let y_cord=this.y;
-    /*let t=touching((WIDTH/2),y_cord,170,0,255);
+    if(this.y < this.maxheight)
     {
-        if(t==0)
-        {
-            state.current=2;
-        }
-    }*/
+        this.maxheight=this.y;
+    }
+    
+    if(this.maxheight <= 0.6*HEIGHT && this.y>= 0.85*HEIGHT)
+    {
+        state.current =3;
+    }
 },
 }
 
